@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 
 # RabbitMQ Configuration
-RABBITMQ_HOST = 'amqps://vumnphwp:04G37mBLNQfL_i6oM1cfMffWzwOOJifD@shrimp.rmq.cloudamqp.com/vumnphwp'
+RABBITMQ_HOST = 'amqps://huejwzha:2wQ8OaBYpNCXyJJhQW6r0mw3kCWEPOaL@shrimp.rmq.cloudamqp.com/huejwzha'
 
 # GPIO Configuration
 GPIO.setmode(GPIO.BCM)
