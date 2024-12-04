@@ -5,18 +5,15 @@ import threading
 import Adafruit_DHT
 import RPi.GPIO as GPIO
 
-# Configuración de GPIO
 GPIO.setmode(GPIO.BCM)
 
-# Pines de los sensores
 GPIO_PINS = {
     'rain_water_level': 17,
     'xkc_y26': 27,
     'flujo_agua': 22,
-    'dht11': 4  # Añadimos el pin del sensor DHT11
+    'dht11': 4  
 }
 
-# URL de RabbitMQ (hardcoded)
 RABBITMQ_HOST = 'amqps://vumnphwp:04G37mBLNQfL_i6oM1cfMffWzwOOJifD@shrimp.rmq.cloudamqp.com/vumnphwp'
 
 QUEUE_NAMES = {

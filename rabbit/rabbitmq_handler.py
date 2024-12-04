@@ -19,7 +19,6 @@ class RabbitMQHandler:
 
     def ensure_queue(self, queue_name):
         try:
-            # Declara la cola, si no existe la crea
             self.channel.queue_declare(queue=queue_name, durable=True)
         except Exception as error:
             print(f"Error declarando cola {queue_name}: {error}")
@@ -36,19 +35,16 @@ class RabbitMQHandler:
     def send_data(self, queue_name, data, retries=3):
         for attempt in range(retries):
             try:
-                # Asegura que la cola exista
                 self.ensure_queue(queue_name)
 
-                # Convierte datos a JSON
                 message = json.dumps(data)
 
-                # Publica el mensaje
                 self.channel.basic_publish(
                     exchange='',
                     routing_key=queue_name,
                     body=message,
                     properties=pika.BasicProperties(
-                        delivery_mode=2,  # Mensaje persistente
+                        delivery_mode=2, 
                         content_type='application/json'
                     )
                 )
